@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">  <link rel="stylesheet" href="/assets/stylesQR.css">
+  <link rel="stylesheet" href="/assets/personas.css">
+  <link rel="icon" href="/assets/images/faviglobal.ico" type="image/x-icon">
+
+  <title>Personas</title>
+
+
+</head>
+<body>
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="index.html">Inicio</a>
+    <a href="qr.html">QR</a>
+    <a href="form.html">Lista Personas</a>
+    <a href="personas.html">Vista Evento</a>
+    <a href="agregarpersona.html">Agregar Persona</a>
+  </div>
+  
+  <div id="main">
+    <button class="btn btn-dark" onclick="openNav()">☰ Global Voip</button>
+  </div>
+  
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+    }
+    
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+    }
+  </script>
+  <!-- ---------------------------------------------------------------------- -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 offset-sm-4">
+        <div id="first-person" class="mt-4 text-center">Texto del primer elemento</div>
+        <div id="counter" class="mt-2 text-center">Personas Ingresadas: 0</div> <!-- Contador de estilos -->
+      </div>
+    </div>
+  </div>
+  <div id="persons-list" class="float-right"></div>
+  <audio id="sound">
+    <source src="/assets/welcomemain.mp3" type="audio/mpeg">
+    <!-- Agrega aquí más etiquetas <source> para compatibilidad con diferentes formatos de audio -->
+  </audio>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      var refreshCount = 0; // Inicializar el contador en 0
+  
+      function refreshPersonsList() {
+        var persons = JSON.parse(localStorage.getItem("persons") || "[]");
+        var firstPerson = $("#first-person");
+        var personsList = $("#persons-list");
+  
+        personsList.empty();
+  
+        if (persons.length > 0) {
+          var firstPersonHtml = persons[persons.length - 1].name + " | " + persons[persons.length - 1].company;
+  
+          if (firstPerson.html() !== firstPersonHtml) {
+            refreshCount++; // Incrementar el contador solo cuando cambia el texto de firstperson
+            $("#counter").text("Personas Ingresadas: " + refreshCount); // Actualizar el contador en la pantalla
+            localStorage.setItem("refreshCount", refreshCount.toString()); // Almacenar el nuevo valor del contador
+            playSound(); // Reproducir el sonido cuando cambie el contador
+          }
+  
+          firstPerson.html(firstPersonHtml);
+  
+          var startIndex = Math.max(0, persons.length - 4);
+          for (var i = startIndex; i < persons.length; i++) {
+            var person = persons[i];
+            var personHtml = "  " + person.name + " | " + person.company + " | " + person.city + "</p>";
+            personsList.append(personHtml);
+          }
+  
+          if (persons.length > 4) {
+            persons.splice(0, persons.length - 4);
+            localStorage.setItem("persons", JSON.stringify(persons));
+          }
+        } else {
+          firstPerson.html("<p>No se han agregado personas</p>");
+          personsList.append("<p>No se han agregado personas</p>");
+          refreshCount = 0; // Reiniciar el contador a 0 cuando no hay personas
+          $("#counter").text("Personas Ingresadas: " + refreshCount); // Actualizar el contador en la pantalla
+          localStorage.setItem("refreshCount", refreshCount.toString()); // Almacenar el nuevo valor del contador
+        }
+      }
+  
+      function borrarContenido() {
+        var vistaPreviaElement = document.getElementById("persons-list"); // Corregir el ID del elemento
+        vistaPreviaElement.innerHTML = "";
+  
+        var persons = [];
+        localStorage.setItem("persons", JSON.stringify(persons));
+  
+        refreshCount = 0; // Reiniciar el contador a 0
+        $("#counter").text("Contador: " + refreshCount);
+        localStorage.setItem("refreshCount", refreshCount.toString());
+  
+        alert("Contenido borrado con éxito");
+      }
+  
+      function playSound() {
+        var audio = document.getElementById("sound");
+        audio.currentTime = 0; // Reiniciar el audio al principio
+        audio.play();
+      }
+  
+      setInterval(refreshPersonsList, 3000); // Comentar o eliminar esta línea si no deseas que se actualice automáticamente cada 3 segundos
+    });
+  </script>
+  
+  
+  
+  
+  
+</body>
+</html>
+

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">  <link rel="stylesheet" href="/assets/stylesQR.css">
+  <link rel="stylesheet" href="/assets/formulario.css">
+  <link rel="icon" href="/assets/images/faviglobal.ico" type="image/x-icon">
+
+  <title>Ingreso de Personas</title>
+</head>
+<body>
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="index.html">Inicio</a>
+    <a href="qr.html">QR</a>
+    <a href="form.html">Lista Personas</a>
+    <a href="personas.html">Vista Evento</a>
+    <a href="agregarpersona.html">Agregar Persona</a>
+
+  </div>
+  
+  <div id="main">
+    <button class="btn btn-dark" onclick="openNav()">☰ Global Voip</button>
+  </div>
+  
+  <script>
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+    }
+    
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+    }
+  </script>
+  <!-- ---------------------------------------------------------------------- -->
+
+
+  <div class="container">
+        <h2 class="text-left mt-5">Ingresar Persona</h2>
+        <div class="mt-4">
+          <button class="btn btn-info" onclick="ordenarPorNombre()">Ordenar por A-Z</button>
+          <button class="btn btn-success" onclick="enviarPersona()">Enviar a Evento</button>
+          <button type="button" class="btn btn-danger" id="clear-btn">Borrar Contenido del Evento</button>
+            <div class="row">
+            <div class="col-sm-6">
+              <h2 class="text-center mt-1">Personas</h2>
+              <!-- Add content for the second column here -->
+              <ul id="listaPersonas">
+                <li><a href="#" onclick="mostrarVistaPrevia(1, 'Emmanuel Lara', 'Caffenio', 'Hermosillo')">Emmanuel Lara</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(2, 'Jose Viera', 'Caffenio', 'Hermosillo')">Jose Viera</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(3, 'Israel Amaya', 'Caffenio', 'Hermosillo')">Israel Amaya</a></li>
+                <!-- Add more list items as needed -->
+                <li><a href="#" onclick="mostrarVistaPrevia(4, 'Alejandro Salcido', 'Caffenio', 'Hermosillo')">Alejandro Salcido</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(5, 'Manuel Flores', 'Caffenio', 'Hermosillo')">Manuel Flores</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(6, 'Jose Luis Lopez', 'Caffenio', 'Hermosillo')">Jose Luis Lopez</a></li>
+                <!-- Add more list items as needed -->
+                <li><a href="#" onclick="mostrarVistaPrevia(7, 'Joaquin Renteria', 'Caffenio', 'Hermosillo')">Joaquin Renteria</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(8, 'Irving Sepulveda', 'Caffenio', 'Hermosillo')">Irving Sepulveda</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(9, 'Denisse Takaki', 'Zobele', 'Hermosillo')">Denisse Takaki</a></li>
+                <!-- Add more list items as needed -->
+                <li><a href="#" onclick="mostrarVistaPrevia(7, 'Mario Tirado', 'Zobele', 'Hermosillo')">Mario Tirado</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(8, 'Francisco Salazar', 'Zobele', 'Hermosillo')">Francisco Salazar</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(9, 'Adrian Flores', 'FlexNGate', 'Hermosillo')">Adrian Flores</a></li>
+                <!-- Add more list items as needed -->
+                <li><a href="#" onclick="mostrarVistaPrevia(10, 'Mario Tirado', 'Zobele', 'Hermosillo')">Mario Tirado</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(11, 'Francisco Salazar', 'Zobele', 'Hermosillo')">Francisco Salazar</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(12, 'Omar Morales', 'FlexNGate', 'Hermosillo')">Omar Morales</a></li>
+                <!-- Add more list items as needed -->
+                <li><a href="#" onclick="mostrarVistaPrevia(1, 'Alexis Quinteros', 'FlexNGate', 'Hermosillo')">Alexis Quinteros</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(2, 'Francisco Moreno', 'Unison', 'Hermosillo')">Francisco Moreno</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(3, 'Joaquin leyva', 'Unison', 'Hermosillo')">Joaquin leyva</a></li>
+                <!-- Add more list items as needed -->
+                <li><a href="#" onclick="mostrarVistaPrevia(1, 'Alan Urias', 'Unison', 'Hermosillo')">Alan Urias</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(2, 'Luis Castillo', 'Younger Optics', 'Hermosillo')">Luis Castillo</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(3, 'Miguel Alvarez', 'Colegio de Sonora', 'Hermosillo')">Miguel Alvarez</a></li>
+                <!-- Add more list items as needed -->
+                <li><a href="#" onclick="mostrarVistaPrevia(1, 'David islas', 'Colegio de Sonora', 'Hermosillo')">David islas</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(2, 'Geovanni Hernandez', 'Camposoles', 'Hermosillo')">Geovanni Hernandez</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(3, 'Christian Ruiz', 'CFE Construcción', 'Hermosillo')">Christian Ruiz</a></li>
+                <!-- Add more list items as needed -->
+                <li><a href="#" onclick="mostrarVistaPrevia(1, 'Carlos Treviño', 'Ford', 'Hermosillo')">Carlos Treviño</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(2, 'Jose Alcala', 'Ford', 'Hermosillo')">Jose Alcala</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(3, 'Iván Castro S', 'Hanka', 'Hermosillo')">Iván Castro S</a></li>
+                <!-- Add more list items as needed -->
+                <li><a href="#" onclick="mostrarVistaPrevia(1, 'Carlos Gutiérrez', 'Hanka', 'Hermosillo')">Carlos Gutiérrez</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(2, 'Olivia Nava', 'Hanka', 'Hermosillo')">Olivia Nava</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(3, 'Marco Antonio Carretas Garcia', 'Oxxo', 'Hermosillo')">Marco Antonio Carretas Garcia</a></li>
+                <!-- Add more list items as needed -->
+                <li><a href="#" onclick="mostrarVistaPrevia(1, 'Luis Fernando Bejarano Romo', 'Oxxo', 'Hermosillo')">Luis Fernando Bejarano Romo</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(2, 'Sara Galvan', 'Nissan', 'Hermosillo')">Sara Galvan</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(3, 'Carlos Jahir Jaime', 'AGNICO EAGLE', 'Hermosillo')">Carlos Jahir Jaime</a></li>
+                <!-- Add more list items as needed -->
+                <li><a href="#" onclick="mostrarVistaPrevia(1, 'Luciano Islas', 'Rancho el 17', 'Hermosillo')">Luciano Islas</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(2, 'Diego Buendía', 'Rancho el 17', 'Hermosillo')">Diego Buendía</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(3, 'Gerardo Esquivel', 'Transportes Pitic', 'Hermosillo')">Gerardo Esquivel</a></li>
+                <!-- Add more list items as needed -->
+                <li><a href="#" onclick="mostrarVistaPrevia(1, 'Hector Robles', 'CARLISLE DE MEXICO', 'Hermosillo')">Hector Robles</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(2, 'Jaime Zavala', 'CARLISLE DE MEXICO', 'Hermosillo')">Jaime Zavala</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(3, 'Constanza Tapia ', 'CARLISLE DE MEXICO', 'Hermosillo')">Constanza Tapia </a></li>
+                <!-- Add more list items as needed -->
+                <li><a href="#" onclick="mostrarVistaPrevia(1, 'Omar Sandoval', 'CARLISLE DE MEXICO', 'Hermosillo')">Omar Sandoval</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(2, 'Ramon Ibarra', 'MKS INSTRUMENT MEXICO', 'Hermosillo')">Ramon Ibarra</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(3, 'Daniel Castro ', 'MKS INSTRUMENT MEXICO', 'Hermosillo')">Daniel Castro</a></li>
+                <!-- Add more list items as needed -->
+                <li><a href="#" onclick="mostrarVistaPrevia(1, 'Tiburcio Robles', 'AVENT/AVANOS', 'Hermosillo')">Tiburcio Robles</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(2, 'Alberto Tapia', 'AVENT/AVANOS', 'Hermosillo')">Alberto Tapia</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(3, 'German Muñoz', 'DORMAKABA-JAVID DE MEXICO', 'Hermosillo')">German Muñoz</a></li>
+                <!-- Add more list items as needed -->
+                <li><a href="#" onclick="mostrarVistaPrevia(1, 'Irvin Bracamonte', 'DORMAKABA-JAVID DE MEXICO', 'Hermosillo')">Irvin Bracamonte</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(2, 'Alejandro Navarro', 'AMP AMERMEX', 'Hermosillo')">Alejandro Navarro</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(3, 'Francisco Abril', 'AMP AMERMEX', 'Hermosillo')">Francisco Abril</a></li>
+                <!-- Add more list items as needed -->
+                <li><a href="#" onclick="mostrarVistaPrevia(1, 'Erendira Avila', 'AMP AMERMEX', 'Hermosillo')">Erendira Avila</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(2, 'Claudia Lopez', 'AMP AMERMEX', 'Hermosillo')">Claudia Lopez</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(3, 'Paul Pulido ', 'AMP AMERMEX', 'Hermosillo')">Paul Pulido</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'Victor Jara','MAQUILAS TETAKAWI', 'Hermosillo')">Victor Jara</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'Daniel Romero','PARKS', 'Hermosillo')">Daniel Romero</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'Christian Gonzalez','MINAS DE ORO', 'Hermosillo')">Christian Gonzalez</a></li>
+               
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'Missael Barrera','MATCO', 'Hermosillo')">Missael Barrera</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'Christian Duarte',' FRESNILLO', 'Hermosillo')">Christian Duarte</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'Jesus Murrieta','FRESNILLO', 'Hermosillo')">Jesus Murrieta</a></li>
+               
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'RENE MANSELL	','ARGONAUTGOLD', 'Hermosillo')">RENE MANSELL</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'Marco Antonio Rivera',' COBRE DEL MAYO', 'Hermosillo')">Marco Antonio Rivera</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'EDGAR ROMERO','FRESNILLO', 'Hermosillo')">EDGAR ROMERO</a></li>
+               
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'JUDAS SALCIDO','CFE ', 'Hermosillo')">JUDAS SALCIDO</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'ALVARO SANTILLANES','CFE' , 'Hermosillo')">ALVARO SANTILLANES</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'MODESTO GARCIA','CFE', 'Hermosillo')">MODESTO GARCIA</a></li>
+               
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'CARLOS ERNESTO LOPEZ','CFE', 'Hermosillo')">CARLOS ERNESTO LOPEZ</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'TANNIA ROBLES MEDELLIN','SEC', 'Hermosillo')">TANNIA ROBLES MEDELLIN</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'BOGAR OROPEZA','SEC', 'Hermosillo')">BOGAR OROPEZA</a></li>
+               
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'RICARDO ALCARAZ','SEC', 'Hermosillo')">RICARDO ALCARAZ</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'JORGE VALENZUELA','KALTIRE', 'Hermosillo')">JORGE VALENZUELA</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'DAVID MARTINEZ ','KALTIRE', 'Hermosillo')">DAVID MARTINEZ</a></li>
+               
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'JOSE ALBERTO DYCK','GOBIERNO DIGITAL', 'Hermosillo')">JOSE ALBERTO DYCK</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'ANGEL BARBA','GOBIERNO DIGITAL', 'Hermosillo')">ANGEL BARBA</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'ALBERTO CABANILLAS','GOBIERNO DIGITAL', 'Hermosillo')">ALBERTO CABANILLAS</a></li>
+
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'CARLOS DIAZ AYOUB','OEE', 'Hermosillo')">CARLOS DIAZ AYOUB</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'GERARDO VAZQUEZ','ICRESON', 'Hermosillo')">GERARDO VAZQUEZ</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'LIZBETH GARTNER','TESORIA DEL ESTADO', 'Hermosillo')">LIZBETH GARTNER</a></li>
+               
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'JUAN ICEDO','SAGARPHA', 'Hermosillo')">JUAN ICEDO</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'Alejandro Felix','Ejecutivo', 'Hermosillo')">Alejandro Felix</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'DAN CAMPA','ICRESON', 'Hermosillo')">DAN CAMPA</a></li>
+               
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'VICTOR VERDUGO ENCINAS','ICRESON', 'Hermosillo')">VICTOR VERDUGO ENCINAS</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'FERNANDO ESCALANTE','FORD', 'Hermosillo')">FERNANDO ESCALANTE</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'CARLOS GALAVIZ','FORD', 'Hermosillo')">CARLOS GALAVIZ</a></li>
+               
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'LUIS HAROS','FORD', 'Hermosillo')">LUIS HAROS</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'HORACIO ROBLES','FORD', 'Hermosillo')">HORACIO ROBLES</a></li>
+                <li><a href="#" onclick="mostrarVistaPrevia(1,'JESUS TERAN','FORD', 'Hermosillo')">JESUS TERAN</a></li>
+               
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'CARLOS BUSTAMANTE','FORD', 'Hermosillo')">CARLOS BUSTAMANTE</a></li>
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'CARLOS ARVALLO','RUBA', 'Hermosillo')">CARLOS ARVALLO</a></li>
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'LUIS MIRANDA',' EDIFICAE', 'Hermosillo')">LUIS MIRANDA</a></li>
+               
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'RUBEN AGUAYYO','QAR', 'Hermosillo')">RUBEN AGUAYYO</a></li>
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'GERMAN CRUZ','QAR', 'Hermosillo')">GERMAN CRUZ</a></li>
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'YASSIR GOMEZ','FIRST MAJESTIC', 'Hermosillo')">YASSIR GOMEZ</a></li>
+               
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'JOSE ROBERTO MAYTORENA','ARCA CONTINENTAL', 'Hermosillo')">JOSE ROBERTO MAYTORENA</a></li>
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'TANNIA EGURROLA','ARCA CONTINENTAL', 'Hermosillo')">TANNIA EGURROLA</a></li>
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'MIGUEL CARRASCO','FIRST MAJESTIC', 'Hermosillo')">MIGUEL CARRASCO</a></li>
+               
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'JAVIER ALEJANDRO LUJAN ','SECRETARIA TURISMO', 'Hermosillo')">JAVIER ALEJANDRO LUJAN</a></li>
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'GABRIEL HUMBERTO BOJORQUEZ','SEGOB', 'Hermosillo')">GABRIEL HUMBERTO BOJORQUEZ</a></li>
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'FELIPE TAPIA SUGICH','Caffenio', 'Hermosillo')">FELIPE TAPIA SUGICH</a></li>
+               
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'JOSE ALONSUE ANGULO U','Caffenio', 'Hermosillo')">JOSE ALONSUE ANGULO U</a></li>
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'RUBEN BORCHARDT',' CIP SONORA', 'Hermosillo')">RUBEN BORCHARDT</a></li>
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'MOISES GARCÍA','CIP SONORA', 'Hermosillo')">MOISES GARCÍA</a></li>
+               
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'ALVARO FLORES PACHECO','COBACH', 'Hermosillo')">ALVARO FLORES PACHECO</a></li>
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'Martha Olivia Molina Castillon','COBACH', 'Hermosillo')">Martha Olivia Molina Castillon</a></li>
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'EMMANUEL LARA CAMARGO','Caffenio', 'Hermosillo')">EMMANUEL LARA CAMARGO</a></li>
+               
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'Jose Luis Lopez Carrillo','Caffenio', 'Hermosillo')">Jose Luis Lopez Carrillo</a></li>
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'ALAN URIAS','UNISON', 'Hermosillo')">ALAN URIAS</a></li>
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'MARLENE IRENE MORENO SALGADO',' CECOP', 'Hermosillo')">MARLENE IRENE MORENO SALGADO</a></li>
+               
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'Milikza Gpe. Castillo Portillo','CEBYC', 'Hermosillo')">Milikza Gpe. Castillo Portillo</a></li>
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'CRISTINA ANGELES ','ZOBELE', 'Hermosillo')">CRISTINA ANGELES</a></li>
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'SEBASTIAN MARTINEZ ','SIGA PARKING', 'Hermosillo')">SEBASTIAN MARTINEZ</a></li>
+               
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'PAOLA G. FAUDOA RIOS','ZOBELE', 'Hermosillo')">PAOLA G. FAUDOA RIOS</a></li>
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'ANGEL ROMANO','HUAWEI', 'Hermosillo')">ANGEL ROMANO</a></li>
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'FERNANDA ABEYTA','QUIRIEGO', 'Hermosillo')">FERNANDA ABEYTA</a></li>
+
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'ADRIAN SALCIDO RUBIO','QUIRIEGO', 'Hermosillo')">ADRIAN SALCIDO RUBIO</a></li>
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'GUILLERMO KITAZAWA','TE', 'Hermosillo')">GUILLERMO KITAZAWA</a></li>
+
+               <li><a href="#" onclick="mostrarVistaPrevia(1,'FERNANDA ABEYTA','MARSELLA 45', 'Hermosillo')">FERNANDA ABEYTA</a></li>
+              </ul>
+            </div>
+            <div id="vista-previa" class="mt-5"></div>
+          </div>
+        </div>
+        </div>
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    var selectedPerson = null;
+
+  
+    function mostrarVistaPrevia(id, name, company, city) {
+      selectedPerson = { id: id, name: name, company: company, city: city };
+  
+      var vistaPreviaElement = document.getElementById("vista-previa");
+      vistaPreviaElement.innerHTML = `
+        <h4>Vista previa de la persona:</h4>
+        <p>ID: ${id}</p>
+        <p>Nombre: ${name}</p>
+        <p>Empresa: ${company}</p>
+        <p>Ciudad: ${city}</p>
+        <button class="btn btn-secondary mt-3" onclick="cerrarVistaPrevia()">Cerrar</button>
+      `;
+    }
+    
+    function cerrarVistaPrevia() {
+      var vistaPreviaElement = document.getElementById("vista-previa");
+      vistaPreviaElement.innerHTML = "";
+      selectedPerson = null;
+    }
+  
+    function enviarPersona() {
+      if (selectedPerson !== null) {
+        var persons = JSON.parse(localStorage.getItem("persons") || "[]");
+        persons.push(selectedPerson);
+        localStorage.setItem("persons", JSON.stringify(persons));
+  
+        alert("Persona agregada con éxito");
+  
+        // Limpiar la vista previa y restablecer la selección
+        var vistaPreviaElement = document.getElementById("vista-previa");
+        vistaPreviaElement.innerHTML = "";
+        selectedPerson = null;
+      } else {
+        alert("Selecciona una persona antes de confirmar.");
+      }
+    }
+    
+    function ordenarPorNombre() {
+      var lista = document.getElementById("listaPersonas2");
+      var lista = document.getElementById("listaPersonas");
+      var items = lista.getElementsByTagName("li");
+      var sortedItems = Array.from(items).sort(function(a, b) {
+        var textA = a.textContent.toLowerCase();
+        var textB = b.textContent.toLowerCase();
+        return textA.localeCompare(textB);
+      });
+      for (var i = 0; i < sortedItems.length; i++) {
+        lista.appendChild(sortedItems[i]);
+      }
+    }
+    
+    $("#clear-btn").click(function() {
+      // Borrar el contenido del almacenamiento local y reiniciar el ID
+      localStorage.removeItem("persons");
+      localStorage.removeItem("lastId");
+      id = 1;
+      alert("Contenido borrado y ID reiniciado");
+    });
+  </script>
+</body>
+</html>
+
+  
+
+
+
